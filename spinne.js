@@ -3,7 +3,6 @@ const datensatzInstanzen = [
     'https://testinstanz-natfak:8890',
     'https://wp-plugin-lorem-ipsum:8890',];
 
-
     function removeTags(str) {
         if ((str===null) || (str===''))
             return false;
@@ -20,7 +19,13 @@ datensatzInstanzen.forEach(item => {
     async function getVisual() {
         try {
             const URL = item;
+
             const browser = await puppeteer.launch();
+
+            const browser = await puppeteer.launch({
+                slowMo: 250,
+            });
+
             const page = await browser.newPage();
     
             await page.setViewport({
@@ -40,6 +45,10 @@ datensatzInstanzen.forEach(item => {
 
             const entry_Text = await page.$eval('p', el => el.innerText);
             console.log('Entry Text is: ' + entry_Text);
+
+            await page.screenshot({ path: `./Data/${item.substring(7)}_screenshot_1920.png` }); //Später Länderkürzel noch optimieren
+            const h1 = await page.$eval("h1", el => el.innerText);
+            console.log(h1);
     
             await browser.close();
         } catch (error) {
