@@ -1,0 +1,23 @@
+{
+  "name": "die_spinne",
+  "version": "1.0.0",
+  "description": "web scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukasniebler/die_spinne.git"
+  },
+  "author": "Lukas Niebler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukasniebler/die_spinne/issues"
+  },
+  "homepage": "https://github.com/lukasniebler/die_spinne#readme",
+  "dependencies": {
+    "puppeteer": "^11.0.0"
+  }
+}
